@@ -14,6 +14,13 @@ class eda:
         self.df = pd.read_csv(self.filepath)
         print("dataset shape before:", self.df.shape)
 
+        # Show column names + preview
+        print("\nColumns:")
+        print(self.df.columns.tolist())
+
+        print("\nSample rows:")
+        print(self.df.head())
+
     def plot_product_distribution(self):
         plt.figure(figsize=(10, 5))
         sns.countplot(data=self.df, y="Product", order=self.df["Product"].value_counts().index)
@@ -50,7 +57,7 @@ class eda:
 
         self.df = self.df[self.df["Product"].isin(allowed_products)]
         self.df = self.df.dropna(subset=["Consumer complaint narrative"])  # remove empty narratives
-        print("Dataset shape after filtering:", df.shape)  
+        print("Dataset shape after filtering:", self.df.shape)  
 
 
     @staticmethod
