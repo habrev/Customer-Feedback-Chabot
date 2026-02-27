@@ -38,7 +38,7 @@ class eda:
         plt.ylabel("Number of Complaints")
         plt.show()
 
-    def narative_presence(self):
+    def narrative_presence(self):
         with_narrative = self.df["Consumer complaint narrative"].notna().sum()
         without_narrative = self.df["Consumer complaint narrative"].isna().sum()
         print("With narrative:", with_narrative)
